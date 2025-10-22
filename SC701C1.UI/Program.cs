@@ -2,14 +2,24 @@ using SC701C1.Abstracciones.AccesoDatos.Clientes;
 using SC701C1.Abstracciones.LogicaDeNegocio.Clientes;
 using SC701C1.AccesoDatos.Clientes;
 using SC701C1.LogicaDeNegocio.Clientes;
+using SC701C1.LogicaDeNegocio.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));
+
+//INYECCIONES DE DEPENDENCIAS
 builder.Services.AddScoped<IListarClienteAD, ListarClienteAD>();
 builder.Services.AddScoped<IListarClienteLN, ListarClienteLN>();
+builder.Services.AddScoped<IObtenerClientePorIdentificacionAD, ObtenerClientePorIdentificacionAD>();    
+builder.Services.AddScoped<IObtenerClientePorIdentificacionLN, ObtenerClientePorIdentificacionLN>();
+builder.Services.AddScoped<IEliminarClienteAD, EliminarClienteAD>();
+builder.Services.AddScoped<IEliminarClienteLN, EliminarClienteLN>();
+builder.Services.AddScoped<IModificarClienteAD, ModificarClienteAD>();
+builder.Services.AddScoped<IModificarClienteLN, ModificarClienteLN>();
 
 var app = builder.Build();
 

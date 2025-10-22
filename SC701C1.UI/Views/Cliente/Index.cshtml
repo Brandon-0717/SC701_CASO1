@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SC701C1.Abstracciones.ModelosDTO.ClienteDTO>
+﻿@using SC701C1.Abstracciones.Modelos.ModelosDTO
+@model IEnumerable<ClienteDTO>
 
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -32,6 +33,8 @@
         </div>
     </div>
 </div>
+
+@await Html.PartialAsync("ModificarCliente");
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

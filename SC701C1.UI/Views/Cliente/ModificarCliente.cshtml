@@ -1,0 +1,97 @@
+﻿@model SC701C1.Abstracciones.Modelos.ModelosDTO.ClienteDTO
+
+<div class="modal fade" id="clienteEditarModal" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" aria-labelledby="clienteEditarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <!-- Header -->
+            <div class="modal-header bg-gradient bg-primary text-white py-2">
+                <h5 class="modal-title fw-bold" id="clienteEditarModalLabel">
+                    <i class="bi bi-pencil-square me-2"></i> Editar Cliente
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body p-4">
+                <form asp-action="ModificarCliente" id="formEditarCliente">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Identificacion" class="form-label"></label>
+                            <input id="edt-cl-identificacion" readonly asp-for="Identificacion" class="form-control" />
+                            <span asp-validation-for="Identificacion" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="TipoIdentificacion" class="form-label"></label>
+                            <input id="edt-cl-tipoIdentificacion" readonly asp-for="TipoIdentificacion" class="form-control" />
+                            <span asp-validation-for="TipoIdentificacion" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Nombre" class="form-label"></label>
+                            <input id="edt-cl-nombre" asp-for="Nombre" class="form-control" />
+                            <span asp-validation-for="Nombre" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="PrimerApellido" class="form-label"></label>
+                            <input id="edt-cl-apellido1" asp-for="PrimerApellido" class="form-control" />
+                            <span asp-validation-for="PrimerApellido" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="SegundoApellido" class="form-label"></label>
+                            <input id="edt-cl-apellido2" asp-for="SegundoApellido" class="form-control" />
+                            <span asp-validation-for="SegundoApellido" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label d-block">Sexo</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Sexo" value="true" id="sexoMasculino" />
+                                <label class="form-check-label" for="sexoMasculino">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" asp-for="Sexo" value="false" id="sexoFemenino" />
+                                <label class="form-check-label" for="sexoFemenino">Femenino</label>
+                            </div>
+                            <span asp-validation-for="Sexo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Edad" class="form-label"></label>
+                            <input id="edt-cl-edad" asp-for="Edad" class="form-control" />
+                            <span asp-validation-for="Edad" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Telefono" class="form-label"></label>
+                            <input id="edt-cl-telefono" asp-for="Telefono" class="form-control" />
+                            <span asp-validation-for="Telefono" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="CorreoElectronico" class="form-label"></label>
+                            <input id="edt-cl-email" asp-for="CorreoElectronico" class="form-control" />
+                            <span asp-validation-for="CorreoElectronico" class="text-danger small"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer py-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i> Cancelar
+                </button>
+                <button type="submit" form="formEditarCliente" class="btn btn-sm btn-success">
+                    <i class="bi bi-save me-1"></i> Guardar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

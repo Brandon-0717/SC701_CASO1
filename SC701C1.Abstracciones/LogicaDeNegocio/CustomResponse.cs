@@ -3,7 +3,7 @@ namespace SC701C1.Abstracciones.LogicaDeNegocio
 {
     public class CustomResponse<T>
     {
-        public string Mensage { get; set; }
+        public string Mensaje { get; set; }
 
         public bool EsError { get; set; }
 
@@ -12,7 +12,7 @@ namespace SC701C1.Abstracciones.LogicaDeNegocio
         public CustomResponse()
         {
             EsError = false;
-            Mensage = string.Empty;
+            Mensaje = string.Empty;
         }
     }
 }

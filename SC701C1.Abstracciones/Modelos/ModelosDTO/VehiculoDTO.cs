@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SC701C1.Abstracciones.ModelosDTO
+namespace SC701C1.Abstracciones.Modelos.ModelosDTO
 {
     public class VehiculoDTO
     {

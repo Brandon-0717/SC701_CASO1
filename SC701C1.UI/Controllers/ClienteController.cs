@@ -1,17 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SC701C1.Abstracciones.LogicaDeNegocio.Clientes;
+using SC701C1.Abstracciones.Modelos.ModelosDTO;
 
 namespace SC701C1.UI.Controllers
 {
     public class ClienteController : Controller
     {
         private readonly IListarClienteLN _listarClienteLN;
+        private readonly IObtenerClientePorIdentificacionLN _obtenerClientePorIdentificacionLN;
+        private readonly IEliminarClienteLN _eliminarClienteLN;
+        private readonly IModificarClienteLN _modificarClienteLN;
 
-
-        public ClienteController(IListarClienteLN listarClienteLN)
+        public ClienteController(IListarClienteLN listarClienteLN, IObtenerClientePorIdentificacionLN obtenerClientePorIdentificacionLN, IEliminarClienteLN eliminarClienteLN, IModificarClienteLN modificarClienteLN)
         {
             _listarClienteLN = listarClienteLN;
+            _obtenerClientePorIdentificacionLN = obtenerClientePorIdentificacionLN;
+            _eliminarClienteLN = eliminarClienteLN;
+            _modificarClienteLN = modificarClienteLN;
         }
 
         //---------------------------------------------------
@@ -28,8 +34,14 @@ namespace SC701C1.UI.Controllers
             return Json(respuesta);
         }
 
-        // GET: ClienteController/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> ObtenerClientePorIdentificacion(int identificacion)
+        {
+            var respuesta = await _obtenerClientePorIdentificacionLN.Obtener(identificacion);
+            return Json(respuesta);
+        }
+
+        // GET: ClienteController/Detalles/5
+        public ActionResult DetallesCliente()
         {
             return View();
         }
@@ -55,46 +67,22 @@ namespace SC701C1.UI.Controllers
             }
         }
 
-        // GET: ClienteController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
         // POST: ClienteController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> ModificarCliente(ClienteDTO cliente)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var respuesta = await _modificarClienteLN.Modificar(cliente);
+            return Json(respuesta);
         }
 
-        // GET: ClienteController/Delete/5
-        public ActionResult Delete(int id)
+        // Delete: ClienteController/EliminarCliente/5
+        [HttpDelete]
+        public async Task<IActionResult> EliminarCliente(int identificacion)
         {
-            return View();
-        }
-
-        // POST: ClienteController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var respuesta = await _eliminarClienteLN.Eliminar(identificacion);
+            return Json(respuesta);
         }
     }
 }

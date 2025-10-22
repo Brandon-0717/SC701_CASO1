@@ -16,8 +16,4 @@
     <ProjectReference Include="..\SC701C1.LogicaDeNegocio\SC701C1.LogicaDeNegocio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Clientes\" />
-  </ItemGroup>
-
 </Project>

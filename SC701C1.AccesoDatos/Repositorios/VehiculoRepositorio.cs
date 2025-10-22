@@ -1,5 +1,5 @@
 ﻿
-using SC701C1.AccesoDatos.Modelos;
+using SC701C1.Abstracciones.Modelos;
 
 namespace SC701C1.AccesoDatos.Repositorios
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace SC701C1.AccesoDatos.Modelos
+namespace SC701C1.Abstracciones.Modelos
 {
     public class ClienteAD
     {

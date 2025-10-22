@@ -3,8 +3,8 @@ using SC701C1.Abstracciones.Modelos.ModelosDTO;
 
 namespace SC701C1.Abstracciones.LogicaDeNegocio.Clientes
 {
-    public interface IRegistrarClienteLN
+    public interface IObtenerClientePorIdentificacionLN
     {
-        Task<CustomResponse<ClienteDTO>> Regisrar(ClienteDTO cliente);
+        Task<CustomResponse<ClienteDTO>> Obtener(int identificacion);
     }
 }
