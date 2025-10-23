@@ -11,13 +11,15 @@ namespace SC701C1.UI.Controllers
         private readonly IObtenerClientePorIdentificacionLN _obtenerClientePorIdentificacionLN;
         private readonly IEliminarClienteLN _eliminarClienteLN;
         private readonly IModificarClienteLN _modificarClienteLN;
+        private readonly IRegistrarClienteLN _registrarClienteLN;
 
-        public ClienteController(IListarClienteLN listarClienteLN, IObtenerClientePorIdentificacionLN obtenerClientePorIdentificacionLN, IEliminarClienteLN eliminarClienteLN, IModificarClienteLN modificarClienteLN)
+        public ClienteController(IListarClienteLN listarClienteLN, IObtenerClientePorIdentificacionLN obtenerClientePorIdentificacionLN, IEliminarClienteLN eliminarClienteLN, IModificarClienteLN modificarClienteLN, IRegistrarClienteLN registrarClienteLN)
         {
             _listarClienteLN = listarClienteLN;
             _obtenerClientePorIdentificacionLN = obtenerClientePorIdentificacionLN;
             _eliminarClienteLN = eliminarClienteLN;
             _modificarClienteLN = modificarClienteLN;
+            _registrarClienteLN = registrarClienteLN;
         }
 
         //---------------------------------------------------
@@ -40,37 +42,17 @@ namespace SC701C1.UI.Controllers
             return Json(respuesta);
         }
 
-        // GET: ClienteController/Detalles/5
-        public ActionResult DetallesCliente()
-        {
-            return View();
-        }
-
-        // GET: ClienteController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: ClienteController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> RegistrarCliente(ClienteDTO cliente)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var respuesta = await _registrarClienteLN.Registrar(cliente);
+            return Json(respuesta);
         }
 
 
         // POST: ClienteController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPut]
         public async Task<IActionResult> ModificarCliente(ClienteDTO cliente)
         {
             var respuesta = await _modificarClienteLN.Modificar(cliente);

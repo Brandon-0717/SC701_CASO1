@@ -20,7 +20,9 @@ builder.Services.AddScoped<IEliminarClienteAD, EliminarClienteAD>();
 builder.Services.AddScoped<IEliminarClienteLN, EliminarClienteLN>();
 builder.Services.AddScoped<IModificarClienteAD, ModificarClienteAD>();
 builder.Services.AddScoped<IModificarClienteLN, ModificarClienteLN>();
-
+builder.Services.AddScoped<IRegistrarClienteAD, RegistrarClienteAD>();
+builder.Services.AddScoped<IRegistrarClienteLN, RegistrarClienteLN>();
+builder.Services.AddScoped<IValidarExistenciaAD, ValidarExistenciaAD>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

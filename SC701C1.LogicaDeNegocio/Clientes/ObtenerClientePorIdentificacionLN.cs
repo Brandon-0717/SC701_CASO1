@@ -26,7 +26,7 @@ namespace SC701C1.LogicaDeNegocio.Clientes
             var validacion = Validar(cliente);
             if (validacion.EsError)
             {
-                return respuesta;
+                return validacion;
             }
 
             respuesta.Data = _mapper.Map<ClienteDTO>(cliente);
@@ -40,7 +40,7 @@ namespace SC701C1.LogicaDeNegocio.Clientes
 
             if (cliente == null)
             {
-                respuesta.EsError = false;
+                respuesta.EsError = true;
                 respuesta.Mensaje = "No se encontró un cliente con la identificación proporcionada.";
                 return respuesta;
             }

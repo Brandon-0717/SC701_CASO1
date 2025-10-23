@@ -36,6 +36,10 @@ namespace SC701C1.LogicaDeNegocio.Clientes
                 respuesta.Mensaje = "No se pudo modificar el cliente.";
                 return respuesta;
             }
+
+            respuesta.Mensaje = "Cliente modificado de manera exitosa.";
+            respuesta.Data = cliente;
+
             return respuesta;
         }
 

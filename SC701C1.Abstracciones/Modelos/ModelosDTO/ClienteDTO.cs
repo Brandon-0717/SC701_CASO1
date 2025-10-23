@@ -7,6 +7,8 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
     public class ClienteDTO
     {
         [Required(ErrorMessage = "La identificación es obligatoria")]
+        [Range(100000000, 2147483647, ErrorMessage = "La identificación debe tener 9 dígitos como máximo.")]
+
         public int Identificacion { get; set; } //ID
 
         [Required(ErrorMessage = "El tipo de identificación es obligatiorio")]
@@ -25,6 +27,7 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         public string SegundoApellido { get; set; }
 
         [Required(ErrorMessage = "El sexo es obligatorio")]
+        [DisplayName("Sexo masculino")]
         public bool Sexo { get; set; }
 
         [Range(18, int.MaxValue, ErrorMessage = "Debe ser mayor de edad")]

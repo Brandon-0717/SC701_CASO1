@@ -12,7 +12,7 @@ namespace SC701C1.AccesoDatos.Repositorios
             new ClienteAD
             {
                 Identificacion = 101230456,
-                TipoIdentificacion = "FISICA_NACIONAL",
+                TipoIdentificacion = "FISICA NACIONAL",
                 Nombre = "Laura",
                 PrimerApellido = "González",
                 SegundoApellido = "Mora",
