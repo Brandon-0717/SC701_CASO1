@@ -11,27 +11,48 @@
 
 </head>
 <body>
-   <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SC701C1.UI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand me-4" asp-area="" asp-controller="Home" asp-action="Index">
+                    SC701C1-Caso1
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="Index"
+                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicio">
+                                <i class="bi bi-house-door-fill fs-4 text-primary"></i>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="Privacy"
+                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Privacidad">
+                                <i class="bi bi-shield-lock-fill fs-4 text-secondary"></i>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="index">Clientes</a>
-                        </li
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehiculo" asp-action="index">Clientes</a>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Cliente" asp-action="Index"
+                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Clientes">
+                                <i class="bi bi-people-fill fs-4 text-info"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Vehiculo" asp-action="Index"
+                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Vehículos">
+                                <i class="bi bi-car-front-fill fs-4 text-success"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Cita" asp-action="Index"
+                               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Citas">
+                                <i class="bi bi-calendar-week fs-4 text-warning"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -53,6 +74,12 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS de Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<!-- JS de Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.3.4/b-3.2.5/b-html5-3.2.5/date-1.6.1/r-3.0.7/sp-2.3.5/sl-3.1.3/datatables.min.css" rel="stylesheet" integrity="sha384-zPK2KXP5oqQ0RMAFCm5exkDJKLmRHrtXb6QrV0d0PjvYPcfjZaYQfcSRK9TK+sOy" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

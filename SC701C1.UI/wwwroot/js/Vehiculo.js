@@ -10,6 +10,31 @@
             $('#modalCrearVehiculo').on('shown.bs.modal', function () {
                 Vehiculo.LlenarSelectPropietarios();
             });
+
+            $('#modalCrearVehiculo').on('hidden.bs.modal', function () {
+                $('#formCrearVehiculo')[0].reset();
+            });
+
+            $('#formCrearVehiculo').on('submit', function (e) {
+                e.preventDefault();
+                Vehiculo.CrearVehiculo();
+            });
+
+            let checkVehiculoElectrico = document.getElementById('checkVehiculoElectrico');
+            let checkTransmisionManual = document.getElementById('checkTransmisionManual');
+
+            checkVehiculoElectrico.addEventListener("change", () => {
+                checkTransmisionManual.disabled = checkVehiculoElectrico.checked;
+            });
+
+            checkTransmisionManual.addEventListener("change", () => {
+                checkVehiculoElectrico.disabled = checkTransmisionManual.checked;
+            });
+
+            $('#tablaVehiculos').on('click', '.btn-del', function () {
+                const placa = $(this).data('id');
+                Vehiculo.EliminarVehiculo(placa);
+            });
         },
         //---------------------
         InicializarTabla() {
@@ -66,27 +91,107 @@
                 }
             });
         },
-
+        //---------------------
         LlenarSelectPropietarios() {
             $.get('/Cliente/ObtenerClientes', function (response) {
                 const select = $('#selectPropietario');
-                select.empty(); // Limpiar opciones previas
+                select.empty();
                 select.append('<option value="">Seleccione propietario...</option>');
 
                 if (!response.esError) {
                     response.data.forEach(cliente => {
-                        // Crear un nombre completo o usar solo nombre si es persona jurídica
                         let nombreCompleto = cliente.nombre;
                         if (cliente.primerApellido || cliente.segundoApellido) {
                             nombreCompleto += ` ${cliente.primerApellido} ${cliente.segundoApellido}`;
                         }
                         select.append(`<option value="${cliente.identificacion}">${nombreCompleto}</option>`);
                     });
+
+                    // ✅ Activar Select2 después de llenar el select
+                    select.select2({
+                        placeholder: "Seleccione propietario...",
+                        width: '100%',
+                        allowClear: true,
+                        dropdownParent: $('#modalCrearVehiculo') // 👈 Esto es clave
+                    });
+
                 } else {
                     Swal.fire({
                         title: 'Ha ocurrido un error',
                         text: response.mensaje,
                         icon: 'error'
+                    });
+                }
+            });
+        },
+        //---------------------
+        CrearVehiculo() {
+            let form = $('#formCrearVehiculo');
+            if (!form.valid()) return;
+
+            $.ajax({
+                url: '/Vehiculo/CrearVehiculo',
+                type: 'POST',
+                data: form.serialize(),
+                success: function (response) {
+                    if (!response.esError) {
+                        $('#modalCrearVehiculo').modal('hide');
+                        Vehiculo.tabla.ajax.reload();
+                        form[0].reset();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Vehiculo Creado',
+                            text: response.mensaje,
+                            showConfirmButton: false,
+                            timer: 1490
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Ha ocurrido un error',
+                            text: response.mensaje,
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 1490
+                        })
+                    }
+                }
+            })
+        },
+        //---------------------
+        EliminarVehiculo(placa) {
+            Swal.fire({
+                title: "Estas seguro de eliminar este vehiculo?",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Si, eliminar",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Vehiculo/EliminarVehiculo',
+                        type: 'DELETE',
+                        data: { placa: placa },
+                        success: function (response) {
+                            if (!response.esError) {
+                                Swal.fire({
+                                    title: "Vehiculo eliminado",
+                                    text: response.mensaje,
+                                    icon: "success",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                Vehiculo.tabla.ajax.reload();
+                            } else {
+                                Swal.fire({
+                                    title: "Ha ocurrido un error",
+                                    text: response.mensaje,
+                                    icon: "error"
+                                });
+                                Vehiculo.tabla.ajax.reload();
+                            }
+                        }
                     });
                 }
             });

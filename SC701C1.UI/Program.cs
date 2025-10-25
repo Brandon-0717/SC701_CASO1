@@ -30,6 +30,10 @@ builder.Services.AddScoped<IValidarExistenciaAD, ValidarExistenciaAD>();
 //----------
 builder.Services.AddScoped<IObtenerVehiculosAD, ObtenerVehiculosAD>();
 builder.Services.AddScoped<IObtenerVehiculosLN, ObtenerVehiculosLN>();
+builder.Services.AddScoped<ICrearVehiculoAD, CrearVehiculoAD>();
+builder.Services.AddScoped<ICrearVehiculoLN, CrearVehiculoLN>();
+builder.Services.AddScoped<IEliminarVehiculoAD, EliminarVehiculoAD>();
+builder.Services.AddScoped<IEliminarVehiculoLN, EliminarVehiculoLN>();
 
 
 var app = builder.Build();

@@ -6,11 +6,15 @@ namespace SC701C1.UI.Controllers
 {
     public class VehiculoController : Controller
     {
-        IObtenerVehiculosLN _obtenerVehiculosLN;
+        private readonly IObtenerVehiculosLN _obtenerVehiculosLN;
+        private readonly ICrearVehiculoLN _crearVehiculoLN;
+        private readonly IEliminarVehiculoLN _eliminarVehiculoLN;
 
-        public VehiculoController(IObtenerVehiculosLN obtenerVehiculosLN)
+        public VehiculoController(IObtenerVehiculosLN obtenerVehiculosLN, ICrearVehiculoLN crearVehiculoLN, IEliminarVehiculoLN eliminarVehiculoLN)
         {
             _obtenerVehiculosLN = obtenerVehiculosLN;
+            _crearVehiculoLN = crearVehiculoLN;
+            _eliminarVehiculoLN = eliminarVehiculoLN;
         }
 
 
@@ -27,9 +31,18 @@ namespace SC701C1.UI.Controllers
             return Json(respuesta);
         }
 
+        [HttpPost]
         public async Task<IActionResult> CrearVehiculo(VehiculoDTO vehiculo )
         {
-            return View();
+            var respuesta = await _crearVehiculoLN.Crear(vehiculo);
+            return Json(respuesta);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> EliminarVehiculo(string placa)
+        {
+            var respuesta = await _eliminarVehiculoLN.Eliminar(placa);
+            return Json(respuesta);
         }
     }
 }

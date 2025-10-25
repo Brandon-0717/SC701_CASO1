@@ -47,7 +47,7 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         [DisplayName("Transmision Manual")]
         public bool TransmisionManual { get; set; }
 
-        [Required(ErrorMessage = "El ID del propietario es obligatorio")]
+        [Required(ErrorMessage = "El propietario es obligatorio")]
         [DisplayName("Propietario")]
         public int PropietarioId { get; set; } // FK
 
