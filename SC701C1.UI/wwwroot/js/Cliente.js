@@ -16,14 +16,15 @@
                 e.preventDefault();
                 Clientes.ModificarCliente();
             }),
-                //--------------------
-                $('#tablaClientes tbody').on('click', '.btn-del', function () {
-                    const id = $(this).data("id");
-                    Clientes.EliminarCliente(id);
-                });
+            //--------------------
+            $('#tablaClientes tbody').on('click', '.btn-del', function () {
+                const id = $(this).data("id");
+                Clientes.EliminarCliente(id);
+            });
             //--------------------
             $('#modalCrearCliente').on('hidden.bs.modal', function () {//limpiar errores de validaciones cuando se cierre el modal
                 Clientes.LimpiarValidacionesForms('formCrearCliente');
+                $('#formCrearCliente')[0].reset();
             });
             //--------------------
             $('#formCrearCliente').on('submit', function (e) {
@@ -49,7 +50,6 @@
                     .removeClass('field-validation-error')
                     .addClass('field-validation-valid');
             }
-            $form[0].reset();
         },
         //---------------------
         InicializarTabla() {

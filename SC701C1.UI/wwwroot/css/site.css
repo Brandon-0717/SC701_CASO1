@@ -21,9 +21,6 @@ body {
   margin-bottom: 60px;
 }
 
-body {
-    background-color: #121212;
-}
 
 .btn-card {
     cursor: pointer;
@@ -43,19 +40,4 @@ body {
 
 .btn-card:hover .icon-hover {
     transform: rotate(10deg) scale(1.1);
-}
-
-/* Ajustes responsive */
-@media (max-width: 576px) {
-    .card-body {
-        padding: 3rem 1.5rem !important;
-    }
-
-    .display-1 {
-        font-size: 3rem !important;
-    }
-
-    h3.card-title {
-        font-size: 1.5rem !important;
-    }
 }

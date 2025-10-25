@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SC701C1.Abstracciones.Modelos.ModelosDTO.VehiculoDTO>
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary"> Listado de Vehiculos</h2>
+        <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearVehiculo">
+            <i class="bi bi-plus-circle me-2"></i> Nuevo Vehiculo
+        </button>
+    </div>
+
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <div class="table-responsive" >
+                <table id="tablaVehiculos" class="table table-hover table-bordered table-striped align-middle">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>Placa</th>
+                            <th>Propietario</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Color</th>
+                            <th>Kilometraje</th>
+                            <th>Capacidad Combustible</th>
+                            <th>Vehiculo Electrico</th>
+                            <th>Transmision Manual</th>
+                            <th>Fecha Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- DataTables llenará esto automáticamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("CrearVehiculo");
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Vehiculo.js" asp-append-version="true"></script>
+}

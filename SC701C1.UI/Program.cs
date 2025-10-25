@@ -1,8 +1,12 @@
 using SC701C1.Abstracciones.AccesoDatos.Clientes;
+using SC701C1.Abstracciones.AccesoDatos.Vehiculos;
 using SC701C1.Abstracciones.LogicaDeNegocio.Clientes;
+using SC701C1.Abstracciones.LogicaDeNegocio.Vehiculos;
 using SC701C1.AccesoDatos.Clientes;
+using SC701C1.AccesoDatos.Vehiculos;
 using SC701C1.LogicaDeNegocio.Clientes;
 using SC701C1.LogicaDeNegocio.Mapper;
+using SC701C1.LogicaDeNegocio.Vehiculos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +27,11 @@ builder.Services.AddScoped<IModificarClienteLN, ModificarClienteLN>();
 builder.Services.AddScoped<IRegistrarClienteAD, RegistrarClienteAD>();
 builder.Services.AddScoped<IRegistrarClienteLN, RegistrarClienteLN>();
 builder.Services.AddScoped<IValidarExistenciaAD, ValidarExistenciaAD>();
+//----------
+builder.Services.AddScoped<IObtenerVehiculosAD, ObtenerVehiculosAD>();
+builder.Services.AddScoped<IObtenerVehiculosLN, ObtenerVehiculosLN>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

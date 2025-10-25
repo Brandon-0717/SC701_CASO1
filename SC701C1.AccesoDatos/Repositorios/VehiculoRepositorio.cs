@@ -3,9 +3,9 @@ using SC701C1.Abstracciones.Modelos;
 
 namespace SC701C1.AccesoDatos.Repositorios
 {
-    public class VehiculoRepositorio
+    internal static class VehiculoRepositorio
     {
-        List<VehiculoAD> vehiculos = new List<VehiculoAD>
+        internal static List<VehiculoAD> vehiculos = new List<VehiculoAD>
         {
             new VehiculoAD
             {

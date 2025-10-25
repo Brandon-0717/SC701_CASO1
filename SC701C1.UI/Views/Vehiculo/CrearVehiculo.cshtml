@@ -1,0 +1,110 @@
+﻿@model SC701C1.Abstracciones.Modelos.ModelosDTO.VehiculoDTO
+
+<!-- Modal -->
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modalCrearVehiculo" tabindex="-1" aria-labelledby="modalCrearVehiculoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <!-- Header -->
+            <div class="modal-header bg-primary text-white rounded-top-4">
+                <h5 class="modal-title fw-bold" id="modalCrearVehiculoLabel">
+                    <i class="bi bi-car-front-fill me-2"></i> Crear Nuevo Vehículo
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body px-4 py-3">
+                <form asp-action="CrearVehiculo" id="formCrearVehiculo">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 d-none"></div>
+
+                    <!-- Sección: Datos del Vehículo -->
+                    <fieldset class="border rounded-3 p-3 mb-4">
+                        <legend class="float-none w-auto px-2 text-primary fw-semibold">
+                            <i class="bi bi-info-circle me-1"></i> Datos del Vehículo
+                        </legend>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Placa" class="form-label fw-semibold"></label>
+                                <input asp-for="Placa" class="form-control" placeholder="Ingrese placa..." />
+                                <span asp-validation-for="Placa" class="text-danger small"></span>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label asp-for="Kilometraje" class="form-label fw-semibold"></label>
+                                <input asp-for="Kilometraje" class="form-control" placeholder="Kilometraje (Km)..." />
+                                <span asp-validation-for="Kilometraje" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Marca" class="form-label fw-semibold"></label>
+                                <input asp-for="Marca" class="form-control" placeholder="Marca del vehículo..." />
+                                <span asp-validation-for="Marca" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Modelo" class="form-label fw-semibold"></label>
+                                <input asp-for="Modelo" class="form-control" placeholder="Modelo..." />
+                                <span asp-validation-for="Modelo" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Anio" class="form-label fw-semibold"></label>
+                                <input asp-for="Anio" class="form-control" placeholder="Año..." />
+                                <span asp-validation-for="Anio" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Peso" class="form-label fw-semibold"></label>
+                                <input asp-for="Peso" class="form-control" placeholder="Peso (Kg)..." />
+                                <span asp-validation-for="Peso" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="CapacidadCombustible" class="form-label fw-semibold"></label>
+                                <input asp-for="CapacidadCombustible" class="form-control" placeholder="Litros..." />
+                                <span asp-validation-for="CapacidadCombustible" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Color" class="form-label fw-semibold"></label>
+                                <input asp-for="Color" class="form-control" placeholder="Color del vehículo..." />
+                                <span asp-validation-for="Color" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 form-check mt-2">
+                                <input class="form-check-input" asp-for="VehiculoElectrico" />
+                                <label class="form-check-label fw-semibold" asp-for="VehiculoElectrico"></label>
+                            </div>
+
+                            <div class="col-md-6 form-check mt-2">
+                                <input class="form-check-input" asp-for="TransmisionManual" />
+                                <label class="form-check-label fw-semibold" asp-for="TransmisionManual"></label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="PropietarioId" class="form-label fw-semibold"></label>
+                                <select asp-for="PropietarioId" class="form-select" id="selectPropietario">
+                                    <option value="">Seleccione propietario...</option>
+                                </select>
+                                <span asp-validation-for="PropietarioId" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Footer con botones -->
+                    <div class="modal-footer border-0 pt-3">
+                        <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                            <i class="bi bi-x-circle me-1"></i> Cerrar
+                        </button>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="bi bi-check-circle me-1"></i> Crear Vehículo
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
