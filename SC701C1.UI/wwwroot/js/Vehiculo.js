@@ -14,6 +14,9 @@
 
             $('#modalCrearVehiculo').on('hidden.bs.modal', function () {
                 $('#formCrearVehiculo')[0].reset();
+                $('#checkVehiculoElectrico, #checkTransmisionManual')
+                    .prop('checked', false)
+                    .prop('disabled', false);
             });
 
             $('#formCrearVehiculo').on('submit', function (e) {
@@ -248,6 +251,8 @@
                             timer: 1490
                         });
                     } else {
+                        $('#modalCrearVehiculo').modal('hide');
+                        //form[0].reset();
                         Swal.fire({
                             title: 'Ha ocurrido un error',
                             text: response.mensaje,

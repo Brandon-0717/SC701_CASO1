@@ -11,14 +11,16 @@ namespace SC701C1.UI.Controllers
         private readonly IEliminarVehiculoLN _eliminarVehiculoLN;
         private readonly IObtenerVehiculoPorPlacaLN _obtenerVehiculoPorPlacaLN;
         private readonly IModificarVehiculoLN _modificarVehiculoLN;
+        private readonly IObtenerVehiculosPorClienteLN _obtenerVehiculosPorClienteLN;
 
-        public VehiculoController(IObtenerVehiculosLN obtenerVehiculosLN, ICrearVehiculoLN crearVehiculoLN, IEliminarVehiculoLN eliminarVehiculoLN, IObtenerVehiculoPorPlacaLN obtenerVehiculoPorPlacaLN, IModificarVehiculoLN modificarVehiculoLN)
+        public VehiculoController(IObtenerVehiculosLN obtenerVehiculosLN, ICrearVehiculoLN crearVehiculoLN, IEliminarVehiculoLN eliminarVehiculoLN, IObtenerVehiculoPorPlacaLN obtenerVehiculoPorPlacaLN, IModificarVehiculoLN modificarVehiculoLN, IObtenerVehiculosPorClienteLN obtenerVehiculosPorClienteLN)
         {
             _obtenerVehiculosLN = obtenerVehiculosLN;
             _crearVehiculoLN = crearVehiculoLN;
             _eliminarVehiculoLN = eliminarVehiculoLN;
             _obtenerVehiculoPorPlacaLN = obtenerVehiculoPorPlacaLN;
             _modificarVehiculoLN = modificarVehiculoLN;
+            _obtenerVehiculosPorClienteLN = obtenerVehiculosPorClienteLN;
         }
 
 
@@ -60,6 +62,13 @@ namespace SC701C1.UI.Controllers
         public async Task<IActionResult> ModificarVehiculo(VehiculoDTO vehiculo)
         {
             var respuesta = await _modificarVehiculoLN.Modificar(vehiculo);
+            return Json(respuesta);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ObtenerVehiculosPorCliente(int identificacion)
+        {
+            var respuesta = await _obtenerVehiculosPorClienteLN.Obtener(identificacion);
             return Json(respuesta);
         }
     }

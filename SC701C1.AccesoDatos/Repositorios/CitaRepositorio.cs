@@ -9,7 +9,7 @@ namespace SC701C1.AccesoDatos.Repositorios
         {
             new CitaAD
             {
-                CitaId = "CITA001",
+                CitaId = Guid.NewGuid(),
                 FechaCita = DateTime.Now.AddDays(2),
                 ClienteId = 101230456,
                 VehiculoId = "101230456",
@@ -18,7 +18,7 @@ namespace SC701C1.AccesoDatos.Repositorios
             },
             new CitaAD
             {
-                CitaId = "CITA002",
+                CitaId = Guid.NewGuid(),
                 FechaCita = DateTime.Now.AddDays(5),
                 ClienteId = 204567891,
                 VehiculoId = "XYZ789",
@@ -27,7 +27,7 @@ namespace SC701C1.AccesoDatos.Repositorios
             },
             new CitaAD
             {
-                CitaId = "CITA003",
+                CitaId = Guid.NewGuid(),
                 FechaCita = DateTime.Now.AddDays(1),
                 ClienteId = 305678912,
                 VehiculoId = "LMN456",

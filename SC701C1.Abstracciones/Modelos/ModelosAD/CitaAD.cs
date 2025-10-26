@@ -3,7 +3,7 @@ namespace SC701C1.Abstracciones.Modelos
 {
     public class CitaAD
     {
-        public string CitaId { get; set; }
+        public Guid CitaId { get; set; }
 
         public DateTime FechaCita { get; set; }
 

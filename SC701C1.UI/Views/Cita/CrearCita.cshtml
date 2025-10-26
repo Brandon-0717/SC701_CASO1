@@ -1,0 +1,78 @@
+﻿@model SC701C1.Abstracciones.Modelos.ModelosDTO.CitaDTO
+<!-- Modal Crear Cita -->
+<div class="modal fade" id="modalCrearCita" tabindex="-1" aria-labelledby="modalCrearCitaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <!-- Header -->
+            <div class="modal-header bg-primary text-white rounded-top-4">
+                <h5 class="modal-title fw-bold" id="modalCrearCitaLabel">
+                    <i class="bi bi-calendar-plus me-2"></i> Crear Nueva Cita
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body px-4 py-3">
+                <form id="formCrearCita">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 d-none"></div>
+
+                    <fieldset class="border rounded-3 p-3 mb-4">
+                        <legend class="float-none w-auto px-2 text-primary fw-semibold">
+                            <i class="bi bi-info-circle me-1"></i> Datos de la Cita
+                        </legend>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="ClienteId" class="form-label fw-semibold"></label>
+                                <select asp-for="ClienteId" class="form-select" id="selectCliente">
+                                    <option value="">Seleccione propietario...</option>
+                                </select>
+                                <span asp-validation-for="ClienteId" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="FechaCita" class="form-label fw-semibold"></label>
+                                <input asp-for="FechaCita" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <span asp-validation-for="FechaCita" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="VehiculoId" class="form-label fw-semibold"></label>
+                                <select disabled multiple asp-for="VehiculoId" class="form-select" id="selectVehiculo">
+                                    <option value="">Seleccione vehículo...</option>
+                                </select>
+                                <span asp-validation-for="VehiculoId" class="text-danger small"></span>
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                <label asp-for="Atenciones" class="form-label fw-semibold">Atenciones (ctrl + click multiple selección)</label>
+                                <select multiple asp-for="Atenciones" class="form-select" id="selectAtenciones">
+                                    <option value="Cambio de aceite">Cambio de aceite</option>
+                                    <option value="Revisión general">Revisión general</option>
+                                    <option value="Diagnóstico eléctrico">Diagnóstico eléctrico</option>
+                                    <option value="Actualización de software">Actualización de software</option>
+                                    <option value="Inspección de frenos">Inspección de frenos</option>
+                                    <option value="Cambio de filtro de aire">Cambio de filtro de aire</option>
+                                </select>
+                                <span asp-validation-for="Atenciones" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Footer -->
+                    <div class="modal-footer border-0 pt-3">
+                        <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                            <i class="bi bi-x-circle me-1"></i> Cerrar
+                        </button>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="bi bi-check-circle me-1"></i> Crear Cita
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

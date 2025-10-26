@@ -43,9 +43,17 @@ builder.Services.AddScoped<IObtenerVehiculoPorPlacaAD, ObtenerVehiculoPorPlacaAD
 builder.Services.AddScoped<IObtenerVehiculoPorPlacaLN, ObtenerVehiculoPorPlacaLN>();
 builder.Services.AddScoped<IModificarVehiculoAD, ModificarVehiculoAD>();
 builder.Services.AddScoped<IModificarVehiculoLN, ModificarVehiculoLN>();
+builder.Services.AddScoped<IValidarExistenciaPlacaAD, ValidarExistenciaPlacaAD>();
+builder.Services.AddScoped<IValidarExistenciaPlacaLN, ValidarExistenciaPlacaLN>();
+builder.Services.AddScoped<IObtenerVehiculosPorClienteAD, ObtenerVehiculosPorClienteAD>();
+builder.Services.AddScoped<IObtenerVehiculosPorClienteLN, ObtenerVehiculosPorClienteLN>();
 //----------Citas
 builder.Services.AddScoped<IListarCitaAD, ListarCitaAD>();
 builder.Services.AddScoped<IListarCitaLN, ListarCitaLN>();
+builder.Services.AddScoped<ICrearCitaAD, CrearCitaAD>();
+builder.Services.AddScoped<ICrearCitaLN, CrearCitaLN>();
+builder.Services.AddScoped<IEliminarCitaAD, EliminarCitaAD>();
+builder.Services.AddScoped<IEliminarCitaLN, EliminarCitaLN>();
 
 
 var app = builder.Build();

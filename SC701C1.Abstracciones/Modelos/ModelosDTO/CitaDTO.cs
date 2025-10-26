@@ -1,22 +1,25 @@
 ﻿
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace SC701C1.Abstracciones.Modelos.ModelosDTO
 {
     public class CitaDTO
     {
-        public string CitaId { get; set; }
+        public Guid CitaId { get; set; }
 
         [Required(ErrorMessage = "La fecha de la cita es obligatoria")]
         [DataType(DataType.DateTime)]
         public DateTime FechaCita { get; set; }
 
         [Required(ErrorMessage = "El cliente es obligatorio")]
+        [DisplayName("Cliente")]
         public int ClienteId { get; set; }
 
         public string NombreCliente { get; set; }
 
         [Required(ErrorMessage = "El vehículo es obligatorio")]
+        [DisplayName("Vehiculo")]
         public string VehiculoId { get; set; }
 
         public string NombreVehiculo { get; set; }

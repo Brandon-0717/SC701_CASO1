@@ -22,7 +22,7 @@ namespace SC701C1.LogicaDeNegocio.Vehiculos
         public async Task<CustomResponse<List<VehiculoDTO>>> Obtener(int clienteId)
         {
             var response = new CustomResponse<List<VehiculoDTO>>();
-            var listaVehiculosDTO = _mapper.Map<List<VehiculoDTO>>(_obtenerVehiculosPorClienteAD.Obtener(clienteId));
+            var listaVehiculosDTO = _mapper.Map<List<VehiculoDTO>>(await _obtenerVehiculosPorClienteAD.Obtener(clienteId));
             
             var respeustaValidacion = await Validar(listaVehiculosDTO);
 

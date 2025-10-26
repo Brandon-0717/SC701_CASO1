@@ -133,7 +133,6 @@
                             confirmButtonText: 'Aceptar'
 
                         });
-
                     }
                 }
             });

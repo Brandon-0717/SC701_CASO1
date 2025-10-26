@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SC701C1.Abstracciones\SC701C1.Abstracciones.csproj" />
+    <ProjectReference Include="..\SC701C1.AccesoDatos\SC701C1.AccesoDatos.csproj" />
   </ItemGroup>
 
 </Project>
