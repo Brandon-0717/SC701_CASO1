@@ -3,16 +3,16 @@ using SC701C1.Abstracciones.Modelos;
 
 namespace SC701C1.AccesoDatos.Repositorios
 {
-    public class CitaRepositorio
+    public static class CitaRepositorio
     {
-        List<CitaAD> citas = new List<CitaAD>
+        internal static List<CitaAD> citas = new List<CitaAD>
         {
             new CitaAD
             {
                 CitaId = "CITA001",
                 FechaCita = DateTime.Now.AddDays(2),
-                ClienteId = "101230456",
-                VehiculoId = 1,
+                ClienteId = 101230456,
+                VehiculoId = "101230456",
                 Estado = "Programada",
                 Atenciones = new List<string> { "Cambio de aceite", "Revisión general" }
             },
@@ -20,8 +20,8 @@ namespace SC701C1.AccesoDatos.Repositorios
             {
                 CitaId = "CITA002",
                 FechaCita = DateTime.Now.AddDays(5),
-                ClienteId = "204567891",
-                VehiculoId = 2,
+                ClienteId = 204567891,
+                VehiculoId = "XYZ789",
                 Estado = "Confirmada",
                 Atenciones = new List<string> { "Diagnóstico eléctrico", "Actualización de software" }
             },
@@ -29,8 +29,8 @@ namespace SC701C1.AccesoDatos.Repositorios
             {
                 CitaId = "CITA003",
                 FechaCita = DateTime.Now.AddDays(1),
-                ClienteId = "305678912",
-                VehiculoId = 3,
+                ClienteId = 305678912,
+                VehiculoId = "LMN456",
                 Estado = "Pendiente",
                 Atenciones = new List<string> { "Inspección de frenos", "Cambio de filtro de aire" }
             }

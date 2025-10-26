@@ -12,6 +12,8 @@ namespace SC701C1.LogicaDeNegocio.Mapper
             CreateMap<ClienteDTO, ClienteAD>();
             CreateMap<VehiculoAD, VehiculoDTO>();
             CreateMap<VehiculoDTO, VehiculoAD>();
+            CreateMap<CitaAD, CitaDTO>();
+            CreateMap<CitaDTO, CitaAD>();
         }
     }
 }

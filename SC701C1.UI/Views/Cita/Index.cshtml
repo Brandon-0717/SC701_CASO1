@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SC701C1.Abstracciones.Modelos.ModelosDTO.CitaDTO>
+
+@{
+    ViewData["Title"] = "Citas";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary"> Listado de Citas</h2>
+        <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearCita">
+            <i class="bi bi-plus-circle me-2"></i> Agendar Cita
+        </button>
+    </div>
+
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="tablaCitas" class="table table-hover table-bordered table-striped align-middle">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>Fecha Cita</th>
+                            <th>Cliente</th>
+                            <th>Vehiculo</th>
+                            <th>Estado</th>
+                            <th>Atenciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- DataTables llenará esto automáticamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Cita.js" asp-append-version="true"></script>
+}

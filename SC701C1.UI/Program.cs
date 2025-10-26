@@ -1,9 +1,13 @@
+using SC701C1.Abstracciones.AccesoDatos.Citas;
 using SC701C1.Abstracciones.AccesoDatos.Clientes;
 using SC701C1.Abstracciones.AccesoDatos.Vehiculos;
+using SC701C1.Abstracciones.LogicaDeNegocio.Citas;
 using SC701C1.Abstracciones.LogicaDeNegocio.Clientes;
 using SC701C1.Abstracciones.LogicaDeNegocio.Vehiculos;
+using SC701C1.AccesoDatos.Citas;
 using SC701C1.AccesoDatos.Clientes;
 using SC701C1.AccesoDatos.Vehiculos;
+using SC701C1.LogicaDeNegocio.Citas;
 using SC701C1.LogicaDeNegocio.Clientes;
 using SC701C1.LogicaDeNegocio.Mapper;
 using SC701C1.LogicaDeNegocio.Vehiculos;
@@ -16,6 +20,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));
 
 //INYECCIONES DE DEPENDENCIAS
+//----------Clientes
 builder.Services.AddScoped<IListarClienteAD, ListarClienteAD>();
 builder.Services.AddScoped<IListarClienteLN, ListarClienteLN>();
 builder.Services.AddScoped<IObtenerClientePorIdentificacionAD, ObtenerClientePorIdentificacionAD>();    
@@ -27,7 +32,7 @@ builder.Services.AddScoped<IModificarClienteLN, ModificarClienteLN>();
 builder.Services.AddScoped<IRegistrarClienteAD, RegistrarClienteAD>();
 builder.Services.AddScoped<IRegistrarClienteLN, RegistrarClienteLN>();
 builder.Services.AddScoped<IValidarExistenciaAD, ValidarExistenciaAD>();
-//----------
+//----------Vehiculos
 builder.Services.AddScoped<IObtenerVehiculosAD, ObtenerVehiculosAD>();
 builder.Services.AddScoped<IObtenerVehiculosLN, ObtenerVehiculosLN>();
 builder.Services.AddScoped<ICrearVehiculoAD, CrearVehiculoAD>();
@@ -38,6 +43,9 @@ builder.Services.AddScoped<IObtenerVehiculoPorPlacaAD, ObtenerVehiculoPorPlacaAD
 builder.Services.AddScoped<IObtenerVehiculoPorPlacaLN, ObtenerVehiculoPorPlacaLN>();
 builder.Services.AddScoped<IModificarVehiculoAD, ModificarVehiculoAD>();
 builder.Services.AddScoped<IModificarVehiculoLN, ModificarVehiculoLN>();
+//----------Citas
+builder.Services.AddScoped<IListarCitaAD, ListarCitaAD>();
+builder.Services.AddScoped<IListarCitaLN, ListarCitaLN>();
 
 
 var app = builder.Build();

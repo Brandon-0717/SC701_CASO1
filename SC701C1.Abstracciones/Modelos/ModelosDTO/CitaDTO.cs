@@ -12,11 +12,14 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         public DateTime FechaCita { get; set; }
 
         [Required(ErrorMessage = "El cliente es obligatorio")]
-        public string ClienteId { get; set; }
+        public int ClienteId { get; set; }
+
+        public string NombreCliente { get; set; }
 
         [Required(ErrorMessage = "El vehículo es obligatorio")]
-        [Range(1, int.MaxValue, ErrorMessage = "El ID del vehículo debe ser mayor que cero")]
-        public int VehiculoId { get; set; }
+        public string VehiculoId { get; set; }
+
+        public string NombreVehiculo { get; set; }
 
         [Required(ErrorMessage = "El estado de la cita es obligatorio")]
         [RegularExpression("^(Ingresada|Cancelada|Concluida)$", ErrorMessage = "Estado inválido")]
@@ -25,6 +28,7 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         [Required(ErrorMessage = "Debe especificar al menos una atención")]
         [MinLength(1, ErrorMessage = "Debe haber al menos una atención registrada")]
         public List<string> Atenciones { get; set; }
+
 
     }
 }

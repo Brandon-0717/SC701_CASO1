@@ -7,9 +7,9 @@ namespace SC701C1.Abstracciones.Modelos
 
         public DateTime FechaCita { get; set; }
 
-        public string ClienteId { get; set; }
+        public int ClienteId { get; set; }
 
-        public int VehiculoId { get; set; }
+        public string VehiculoId { get; set; }
 
         public string Estado { get; set; }
 
