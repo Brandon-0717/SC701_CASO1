@@ -34,6 +34,10 @@ builder.Services.AddScoped<ICrearVehiculoAD, CrearVehiculoAD>();
 builder.Services.AddScoped<ICrearVehiculoLN, CrearVehiculoLN>();
 builder.Services.AddScoped<IEliminarVehiculoAD, EliminarVehiculoAD>();
 builder.Services.AddScoped<IEliminarVehiculoLN, EliminarVehiculoLN>();
+builder.Services.AddScoped<IObtenerVehiculoPorPlacaAD, ObtenerVehiculoPorPlacaAD>();
+builder.Services.AddScoped<IObtenerVehiculoPorPlacaLN, ObtenerVehiculoPorPlacaLN>();
+builder.Services.AddScoped<IModificarVehiculoAD, ModificarVehiculoAD>();
+builder.Services.AddScoped<IModificarVehiculoLN, ModificarVehiculoLN>();
 
 
 var app = builder.Build();

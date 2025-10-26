@@ -1,0 +1,116 @@
+﻿@model SC701C1.Abstracciones.Modelos.ModelosDTO.VehiculoDTO
+
+<!-- Modal Editar Vehículo -->
+<div class="modal fade" id="modalEditarVehiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="vehiculoEditarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <!-- Header -->
+            <div class="modal-header bg-gradient bg-primary text-white py-2">
+                <h5 class="modal-title fw-bold" id="vehiculoEditarModalLabel">
+                    <i class="bi bi-pencil-square me-2"></i> Editar Vehículo
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body p-4">
+                <form asp-action="ModificarVehiculo" id="formEditarVehiculo">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label asp-for="Placa" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-placa" asp-for="Placa" class="form-control" readonly />
+                            <span asp-validation-for="Placa" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Marca" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-marca" asp-for="Marca" class="form-control" />
+                            <span asp-validation-for="Marca" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Anio" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-anio" asp-for="Anio" class="form-control" />
+                            <span asp-validation-for="Anio" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Modelo" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-modelo" asp-for="Modelo" class="form-control" />
+                            <span asp-validation-for="Modelo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Kilometraje" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-kilometraje" asp-for="Kilometraje" class="form-control" />
+                            <span asp-validation-for="Kilometraje" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Peso" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-peso" asp-for="Peso" class="form-control" />
+                            <span asp-validation-for="Peso" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="CapacidadCombustible" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-combustible" asp-for="CapacidadCombustible" class="form-control" />
+                            <span asp-validation-for="CapacidadCombustible" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Color" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-color" asp-for="Color" class="form-control" />
+                            <span asp-validation-for="Color" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 form-check mt-2">
+                            <input id="edt-vh-electrico" class="form-check-input" asp-for="VehiculoElectrico" />
+                            <label class="form-check-label fw-semibold" asp-for="VehiculoElectrico"></label>
+                        </div>
+
+                        <div class="col-md-6 form-check mt-2">
+                            <input id="edt-vh-transmision" class="form-check-input" asp-for="TransmisionManual" />
+                            <label class="form-check-label fw-semibold" asp-for="TransmisionManual"></label>
+                        </div>
+
+                        <!--<div class="col-md-6">
+                            <label asp-for="PropietarioId" class="form-label fw-semibold"></label>
+                            <input id="edt-vh-propietarioId" asp-for="PropietarioId" class="form-control" />
+                            <span asp-validation-for="PropietarioId" class="text-danger small"></span>
+                        </div>-->
+
+                        <div class="col-md-6">
+                            <label asp-for="PropietarioId" class="form-label fw-semibold"></label>
+                            <select asp-for="PropietarioId" class="form-select" id="edt-vh-propietarioId">
+                                <option value="">Seleccione propietario...</option>
+                            </select>
+                            <span asp-validation-for="PropietarioId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!--No pude corregirlo-->
+                            <label asp-for="FechaRegistro" class="form-label fw-semibold"></label>
+                            <input disabled id="edt-vh-fechaRegistro" type="datetime" asp-for="FechaRegistro" class="form-control" readonly />
+                            <span asp-validation-for="FechaRegistro" class="text-danger small"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer py-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i> Cancelar
+                </button>
+                <button type="submit" form="formEditarVehiculo" class="btn btn-sm btn-success">
+                    <i class="bi bi-save me-1"></i> Guardar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

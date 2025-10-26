@@ -51,7 +51,7 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         [DisplayName("Propietario")]
         public int PropietarioId { get; set; } // FK
 
-        public string NombrePropietario { get; set; } // FK
+        public string? NombrePropietario { get; set; } // FK
 
         [DisplayName("Fecha de Registro")]
         public DateTime FechaRegistro { get; set; }
