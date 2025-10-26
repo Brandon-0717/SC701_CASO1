@@ -11,11 +11,16 @@
                 const citaId = $(this).data('id');
                 Citas.EliminarCita(citaId);
             });
-
+            //---------------------
+            $('#tablaCitas').on('click', '.btn-edt', function () {
+                const citaId = $(this).data('id');
+                Citas.MostrarModalEditarCita(citaId);
+            });
+            //---------------------
             $('#modalCrearCita').on('show.bs.modal', function () {
                 Citas.LlenarSelectClientes();
             });
-
+            //---------------------
             $('#modalCrearCita').on('hide.bs.modal', function () {
                 const form = $('#formCrearCita');
                 form[0].reset();
@@ -25,20 +30,22 @@
                 $('#selectVehiculo').empty().prop("disabled", true);
                 $('#selectVehiculo').append('<option value="">Seleccione Vehiculo...</option>');
             });
-
+            //---------------------
             $('#formCrearCita').on('submit', function (e) {
                 e.preventDefault();
                 Citas.CrearCita();
             });
-
+            //---------------------
             $('#selectCliente').on('change', function () {
-
                 const clienteId = $(this).val();
                 const selectVehiculo = $('#selectVehiculo');
-
                 Citas.LlenarSelectVehiculosDelCliente(clienteId);
             });
-
+            //---------------------
+            $('#formEditarCita').on('submit', function (e) {
+                e.preventDefault();
+                Citas.EditarCita();
+            });
         },
         InicializarTabla() {
             this.tabla = $('#tablaCitas').DataTable({
@@ -207,6 +214,60 @@
                 $('#selectVehiculo').prop("disabled", false);
             });
         },
+        //---------------------
+        MostrarModalEditarCita(citaId) {
+            $.get('/Cita/ObtenerCitaPorId', { citaId: citaId }, function (response) {
+                if (!response.esError) {
+                    const cita = response.data;
+                    // Llenar los campos del modal
+                    $('#editCitaId').val(cita.citaId);
+                    $('#edt-ct-NombreCliente').val(cita.nombreCliente);
+                    $('#edt-ct-NombreVehiculo').val(cita.nombreVehiculo);
+                    $('#edt-ct-FechaCita').val(cita.fechaCita.slice(0, 16));
+                    $('#edt-ct-Estado').val(cita.estado);
+                    // Mostrar el modal
+                    $('#modalEditarCita').modal('show');
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: response.mensaje,
+                        icon: "error"
+                    });
+                }
+            });
+        },
+        //---------------------
+        EditarCita() {
+            let form = $('#formEditarCita');
+
+            $.ajax({
+                url: '/Cita/ModificarCita',
+                type: 'PUT',
+                data: form.serialize(),
+                success: function (response) {
+                    if (!response.esError) {
+                        Swal.fire({
+                            title: "Cita actualizada!",
+                            text: response.mensaje,
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $('#modalEditarCita').modal('hide');
+                        Citas.tabla.ajax.reload();
+                        form[0].reset();
+
+                    } else {
+                        Swal.fire({
+                            title: "Ha ocurrido un error",
+                            text: response.mensaje,
+                            icon: "error",
+                            showConfirmButton: true,
+                        });
+                    }
+                }
+            });
+        }
     }
     $(document).ready(() => Citas.init());
 })();

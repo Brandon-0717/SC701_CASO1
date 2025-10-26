@@ -16,12 +16,14 @@ namespace SC701C1.Abstracciones.Modelos.ModelosDTO
         [DisplayName("Cliente")]
         public int ClienteId { get; set; }
 
+        [DisplayName("Nombre Cliente")]
         public string NombreCliente { get; set; }
 
         [Required(ErrorMessage = "El vehículo es obligatorio")]
         [DisplayName("Vehiculo")]
         public string VehiculoId { get; set; }
 
+        [DisplayName("Vehiculo")]
         public string NombreVehiculo { get; set; }
 
         [Required(ErrorMessage = "El estado de la cita es obligatorio")]

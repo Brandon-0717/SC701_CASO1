@@ -54,6 +54,10 @@ builder.Services.AddScoped<ICrearCitaAD, CrearCitaAD>();
 builder.Services.AddScoped<ICrearCitaLN, CrearCitaLN>();
 builder.Services.AddScoped<IEliminarCitaAD, EliminarCitaAD>();
 builder.Services.AddScoped<IEliminarCitaLN, EliminarCitaLN>();
+builder.Services.AddScoped<IObtenerCitaPorIdAD, ObtenerCitaPorIdAD>();
+builder.Services.AddScoped<IObtenerCitaPorIdLN, ObtenerCitaPorIdLN>();
+builder.Services.AddScoped<IModificarCitaAD, ModificarCitaAD>();
+builder.Services.AddScoped<IModificarCitaLN, ModificarCitaLN>();
 
 
 var app = builder.Build();

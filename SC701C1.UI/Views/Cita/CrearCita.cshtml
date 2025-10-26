@@ -33,7 +33,7 @@
 
                             <div class="col-md-6">
                                 <label asp-for="FechaCita" class="form-label fw-semibold"></label>
-                                <input asp-for="FechaCita" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <input asp-for="FechaCita" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
                                 <span asp-validation-for="FechaCita" class="text-danger small"></span>
                             </div>
 

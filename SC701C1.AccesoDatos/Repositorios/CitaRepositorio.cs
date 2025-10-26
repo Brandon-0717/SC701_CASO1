@@ -12,7 +12,7 @@ namespace SC701C1.AccesoDatos.Repositorios
                 CitaId = Guid.NewGuid(),
                 FechaCita = DateTime.Now.AddDays(2),
                 ClienteId = 101230456,
-                VehiculoId = "101230456",
+                VehiculoId = "ABC123",
                 Estado = "Programada",
                 Atenciones = new List<string> { "Cambio de aceite", "Revisión general" }
             },
