@@ -1,6 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<!-- Carrusel Bootstrap 5 -->
+<div id="carouselPrivacy" class="carousel slide mt-5" data-bs-ride="carousel">
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselPrivacy" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselPrivacy" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselPrivacy" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner rounded-4 shadow-lg">
+        <div class="carousel-item active text-center">
+            <img src="https://i.pinimg.com/1200x/a5/a4/c5/a5a4c52e8afbb72f2cef4ccd072504f0.jpg" class="d-inline-block" alt="Privacidad">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Proyecto Aprobado</h5>
+                <p>Hecho con tiempo y dedicacion.</p>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="https://i.pinimg.com/1200x/fe/df/81/fedf812cc05aa49612ba52c1c4ea23bd.jpg" class="d-inline-block" alt="Seguridad">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Estilo bonito</h5>
+                <p>Pra poder mantener una buena estetica.</p>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="https://i.pinimg.com/1200x/f8/32/42/f83242bb90de575d9ee2223c65b5955a.jpg" class="d-inline-block" alt="Confidencialidad">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                <h5>Hecho con tiempo y dedicacion</h5>
+                <p>Con la ayuda de gpt para las vistas y un poco del js.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrivacy" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselPrivacy" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+
+<!-- Estilos personalizados -->
+<style>
+    /* No forzar altura: que se adapte al tamaño de la imagen */
+    .carousel-item img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .carousel-caption {
+        bottom: 20px;
+    }
+</style>

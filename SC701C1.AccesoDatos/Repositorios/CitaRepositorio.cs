@@ -13,7 +13,7 @@ namespace SC701C1.AccesoDatos.Repositorios
                 FechaCita = DateTime.Now.AddDays(2),
                 ClienteId = 101230456,
                 VehiculoId = "ABC123",
-                Estado = "Programada",
+                Estado = "Ingresada",
                 Atenciones = new List<string> { "Cambio de aceite", "Revisión general" }
             },
             new CitaAD
@@ -22,7 +22,7 @@ namespace SC701C1.AccesoDatos.Repositorios
                 FechaCita = DateTime.Now.AddDays(5),
                 ClienteId = 204567891,
                 VehiculoId = "XYZ789",
-                Estado = "Confirmada",
+                Estado = "Cancelada",
                 Atenciones = new List<string> { "Diagnóstico eléctrico", "Actualización de software" }
             },
             new CitaAD
@@ -31,7 +31,7 @@ namespace SC701C1.AccesoDatos.Repositorios
                 FechaCita = DateTime.Now.AddDays(1),
                 ClienteId = 305678912,
                 VehiculoId = "LMN456",
-                Estado = "Pendiente",
+                Estado = "Concluida",
                 Atenciones = new List<string> { "Inspección de frenos", "Cambio de filtro de aire" }
             }
         };
